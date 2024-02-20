@@ -1,0 +1,18 @@
+{"books":[
+  {"title": "A book",
+    "Author": "An Author",
+    "metadata": {
+      "price": 50,
+      "categories": ["fantasy","sci-fi"],
+      "isbn":  1235465210275,
+      "pages":  283}
+  },
+  {"title": "Another book",
+    "Author": "Another Author",
+    "metadata": {
+      "price": 3520,
+      "categories": ["Drama","Thriller"],
+      "isbn":  1351026845620,
+      "pages":  183}
+  }
+]}
