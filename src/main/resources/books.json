@@ -15,4 +15,53 @@
       "isbn":  1351026845620,
       "pages":  183}
   }
+,
+  {"title": "Wrong book",
+    "Author": "",
+    "metadata": {
+      "price": -200,
+      "categories": ["",""],
+      "isbn":  555,
+      "pages":  -5}
+  },
+  {"title": "Ran out of creativity",
+    "Author": "Pakora",
+    "metadata": {
+      "price": 1500,
+      "categories": "fishes",
+      "isbn":  9781491943533,
+      "pages":  334}
+  },
+  {"title": "You Don't Know JS Yet",
+    "Author": "Get Started",
+    "metadata": {
+      "price": 143,
+      "categories": ["none"],
+      "isbn":  9798602477429,
+      "pages":  143}
+  },
+  {"title": "Book name???",
+    "Author": "WouldIWas ShookSpeared",
+    "metadata": {
+      "price": 350245,
+      "categories": ["Faluda","bhook lag rahi hay"],
+      "isbn":  3979702471039,
+      "pages":  3}
+  },
+  {"title": "Book name",
+    "Author": "William Shakespeare",
+    "metadata": {
+      "price": 1500,
+      "categories": ["fantasy","sci-fi"],
+      "isbn":  1235465210275,
+      "pages":  283}
+  },
+  {"title": "Book name",
+    "Author": "William Shakespeare",
+    "metadata": {
+      "price": 1500,
+      "categories": ["fantasy","sci-fi"],
+      "isbn":  1235465210275,
+      "pages":  283}
+  }
 ]

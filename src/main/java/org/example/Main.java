@@ -18,18 +18,19 @@ public class Main {
 
             // Parse JSON string to BookObject array using GSON
             Gson gson = new Gson();
-            bookObject[] books = gson.fromJson(jsonString.toString(), bookObject[].class);
+            BookObject[] books = gson.fromJson(jsonString.toString(), BookObject[].class);
 
             // Print each BookObject
-            for (bookObject book : books) {
+            for (BookObject book : books) {
                 System.out.println("Title: " + book.title);
-                System.out.println("Price: " + book.metaData.price);
+                System.out.println("Author: "+ book.Author);
+                System.out.println("Price: " + book.metadata.price);
                 System.out.println("Categories: ");
-                for (String category : book.metaData.categories) {
+                for (String category : book.metadata.categories) {
                     System.out.println("  - " + category);
                 }
-                System.out.println("ISBN: " + book.metaData.isbn);
-                System.out.println("Pages: " + book.metaData.pages);
+                System.out.println("ISBN: " + book.metadata.isbn);
+                System.out.println("Pages: " + book.metadata.pages);
                 System.out.println();
             }
         } catch (IOException e) {
