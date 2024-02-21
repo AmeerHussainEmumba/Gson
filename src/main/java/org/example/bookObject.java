@@ -1,19 +1,17 @@
 package org.example;
+import java.math.BigInteger;
+
+
 
 public class bookObject {
     String title;
-    int price;
-    String[] categories;
-    int isbn;
-    int pages;
-
-    public bookObject(String title,int price, String[]categories, int isbn, int pages)
+    String Author;
+    metaData metaData;
+    public bookObject(String title, String Author, int price, String[]categories, BigInteger isbn, int pages)
     {
         this.title=title;
-        this.price=price;
-        this.categories=categories;
-        this.isbn=isbn;
-        this.pages=pages;
+        this.Author=Author;
+        this.metaData=new metaData (price,categories,isbn,pages);
     }
 
 }
