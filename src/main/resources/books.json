@@ -8,12 +8,20 @@
       "pages":  283}
   },
   {"title": "Another book",
-    "Author": "An Author",
+    "Author": "Another Author",
     "metadata": {
       "price": 3520,
       "categories": ["Drama","Thriller"],
       "isbn":  1351026845620,
       "pages":  183}
+  },
+  {"title": "One more book",
+    "Author": "An Author",
+    "metadata": {
+      "price": 3220,
+      "categories": ["No one knows","Thriller"],
+      "isbn":  1351065825620,
+      "pages":  143}
   }
 
 ]
