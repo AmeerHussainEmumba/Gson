@@ -66,7 +66,7 @@ public class BookProcessor {
         {
             if (book.price()==highestPrice)
             {
-                System.out.println(book.title+ " has the highest price");
+                System.out.println(book.title+ " has the highest price, which is "+ book.price());
             }
         }
     }

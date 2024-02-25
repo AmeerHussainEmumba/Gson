@@ -7,22 +7,24 @@ public class MainApp {
         CreateLibrary library= new CreateLibrary();
         BookProcessor tasks=new BookProcessor();
 
-
         BookObject[] books= library.createLibrary("src/main/resources/books.json");
-        //Display AllBooks
-        tasks.displayBookInfo(books);
 
-        //Get All books of an Author xyz
-        tasks.allBooksOfAnAuthor(books,"An Author");
+        {
+            //Display AllBooks
+            tasks.displayBookInfo(books);
 
-        //get Average price
-         tasks.getAveragePrice(books);
-
-        //get book with the highest price
-        tasks.getHighestPrice(books);
-
-        //get books with certain category
-        tasks.getBookOfCategory(books, "Thriller");
+            //Get All books of an Author xyz
+            tasks.allBooksOfAnAuthor(books, "An Author");
+//
+//            //get Average price
+            tasks.getAveragePrice(books);
+//
+//            //get book with the highest price
+            tasks.getHighestPrice(books);
+//
+//            //get books with certain category
+            tasks.getBookOfCategory(books, "Thriller");
+    }
 
 
 }
