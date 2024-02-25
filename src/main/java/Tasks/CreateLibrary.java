@@ -37,7 +37,7 @@ public class CreateLibrary {
                 metadata.put("categories", categoriesArray);
             }
                 else if (Objects.equals(categoriesValue.toString(), "[]"))
-                {   System.out.println(book.getString("title")+ " key koi category nai hay");
+                {
                 String[] Misc={"Misc"};
                 metadata.put("categories",Misc);
                 }
