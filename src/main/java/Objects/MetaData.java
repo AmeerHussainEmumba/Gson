@@ -1,13 +1,15 @@
 package Objects;
-
+import lombok.Getter;
+import lombok.Setter;
 import java.math.BigInteger;
 
+@Getter
+@Setter
 public class MetaData {
-
-    public int price;
-    public String[] categories;
-    public BigInteger isbn;
-    public int pages;
+    private int price;
+    private String[] categories;
+    private BigInteger isbn;
+    private int pages;
 
     public MetaData(int price, String[] categories, BigInteger isbn, int pages) {
         this.price = price;
@@ -15,7 +17,5 @@ public class MetaData {
         this.isbn = isbn;
         this.pages = pages;
     }
-
-
 }
 

@@ -1,18 +1,22 @@
-package Tasks;
-
+package LibraryActions;
 import Objects.BookObject;
-
-
-import java.math.BigInteger;
 import java.util.Objects;
 
 public class BookProcessor {
 
 
     public void displayBookInfo(BookObject[] books) {
-
-        for (BookObject book : books) {
-            book.displayBookData();
+        for (BookObject book : books)
+        {
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Price: " + book.getMetadata().getPrice());
+            System.out.println("Categories: ");
+            for (String category : book.getMetadata().getCategories())
+                System.out.println("  - " + category);
+            System.out.println("ISBN: " + book.getMetadata().getIsbn());
+            System.out.println("Pages: " +book.getMetadata().getPages());
+            System.out.println();
         }
     }
 
@@ -22,22 +26,18 @@ public class BookProcessor {
         int index=0;
         for (BookObject book : books)
         {
-            if (Objects.equals(book.authorName(), Author))
+            if (Objects.equals(book.getAuthor(), Author))
             {
-                allBooks[index]=book.title;
+                allBooks[index]=book.getTitle();
                 index++;
             }
         }
 
         if (index==0)
-        {
-            System.out.println("there are no books with this Author");
-        }
+        System.out.println("there are no books with this Author");
         else
         { for (int i=0; i<index;i++)
-        {
-            System.out.println(allBooks[i]);
-        }
+        System.out.println(allBooks[i]);
         }
     }
 
@@ -45,9 +45,7 @@ public class BookProcessor {
     {
         int Average=0;
         for (BookObject book: books)
-        {
-            Average= Average+ book.price();
-        }
+            Average= Average+ book.getMetadata().getPrice();
         Average=Average/books.length;
         System.out.println("The Average price is "+Average);
     }
@@ -57,17 +55,14 @@ public class BookProcessor {
         int highestPrice=0;
         for (BookObject book: books)
         {
-            if (book.price()>=highestPrice)
-            {
-                highestPrice= book.price();
-            }
+            if (book.getMetadata().getPrice()>=highestPrice)
+                highestPrice= book.getMetadata().getPrice();
         }
         for (BookObject book: books)
         {
-            if (book.price()==highestPrice)
-            {
-                System.out.println(book.title+ " has the highest price, which is "+ book.price());
-            }
+            if (book.getMetadata().getPrice()==highestPrice)
+                System.out.println(book.getTitle()+ " has the highest price, which is "+ book.getMetadata().getPrice());
+
         }
     }
 
@@ -76,26 +71,21 @@ public class BookProcessor {
         int index=0;
         for (BookObject book : books)
         {
-            for (String categories:book.categories())
+            for (String categories:book.getMetadata().getCategories())
             {
                 if (Objects.equals(categories, Category))
                 {
-                    allBooks[index]=book.title;
+                    allBooks[index]=book.getTitle();
                     index++;
                 }
             }
         }
         if (index==0)
-        {
             System.out.println("There arent any books of this category in list");
-        }
-
         else
-
         {   for (int i=0; i<index;i++)
             System.out.println(allBooks[i]);
         }
-
 
     }
 }

@@ -1,31 +1,27 @@
 package org.example;
-import Tasks.*;
+
+import LibraryActions.Library;
 import Objects.*;
 
 public class MainApp {
     public static void main(String[] args) {
-        CreateLibrary library= new CreateLibrary();
-        BookProcessor tasks=new BookProcessor();
-
-        BookObject[] books= library.createLibrary("src/main/resources/books.json");
-
+        Library library= new Library();
+        BookObject[] booksInLibrary= library.addBooksToLibrary("src/main/resources/books.json");
         {
             //Display AllBooks
-            tasks.displayBookInfo(books);
+            library.getBookProcessor().displayBookInfo(booksInLibrary);
 
             //Get All books of an Author xyz
-            tasks.allBooksOfAnAuthor(books, "An Author");
+            library.getBookProcessor().allBooksOfAnAuthor(booksInLibrary, "An Author");
 //
-//            //get Average price
-            tasks.getAveragePrice(books);
+//          //Get Average price
+            library.getBookProcessor().getAveragePrice(booksInLibrary);
 //
-//            //get book with the highest price
-            tasks.getHighestPrice(books);
+//          //Get book with the highest price
+            library.getBookProcessor().getHighestPrice(booksInLibrary);
 //
-//            //get books with certain category
-            tasks.getBookOfCategory(books, "Thriller");
-    }
-
-
+//          //Get books with certain category
+            library.getBookProcessor().getBookOfCategory(booksInLibrary, "Thriller");
+        }
 }
 }
