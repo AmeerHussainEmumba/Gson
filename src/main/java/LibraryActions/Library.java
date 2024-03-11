@@ -14,8 +14,8 @@ import java.util.Objects;
 @Setter
 
 public class Library {
-    private JsonToString jsonToString;
-    private BookProcessor bookProcessor;
+    private JsonToString jsonToString=new JsonToString();
+    private BookProcessor bookProcessor=new BookProcessor();
     public BookObject[] addBooksToLibrary(String filePath) {
         StringBuilder convertedString = jsonFileErrorHandler(filePath);
         Gson gson = new Gson();

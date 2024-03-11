@@ -1,6 +1,8 @@
 package LibraryActions;
 import Objects.BookObject;
+import java.util.Arrays;
 import java.util.Objects;
+
 
 public class BookProcessor {
 
@@ -20,72 +22,38 @@ public class BookProcessor {
         }
     }
 
-    public void allBooksOfAnAuthor (BookObject[] books, String Author)
+    public void allBooksOfAnAuthor (BookObject[] books, String author)
     {
-        String[] allBooks= new String[books.length];
-        int index=0;
-        for (BookObject book : books)
-        {
-            if (Objects.equals(book.getAuthor(), Author))
-            {
-                allBooks[index]=book.getTitle();
-                index++;
-            }
-        }
-
-        if (index==0)
-        System.out.println("there are no books with this Author");
-        else
-        { for (int i=0; i<index;i++)
-        System.out.println(allBooks[i]);
-        }
+        Arrays.stream(books)
+                .filter(book -> Objects.equals(book.getAuthor(), author))
+                .map(BookObject::getTitle)
+                .forEach(System.out::println);
     }
 
     public void getAveragePrice(BookObject[] books)
     {
-        int Average=0;
-        for (BookObject book: books)
-            Average= Average+ book.getMetadata().getPrice();
-        Average=Average/books.length;
-        System.out.println("The Average price is "+Average);
+        double averagePrice = Arrays.stream(books)
+                .mapToDouble(book -> book.getMetadata().getPrice())
+                .average()
+                .orElse(0);
+        System.out.println("The Average price is " + averagePrice);
     }
 
     public void getHighestPrice (BookObject[] books)
     {
-        int highestPrice=0;
-        for (BookObject book: books)
-        {
-            if (book.getMetadata().getPrice()>=highestPrice)
-                highestPrice= book.getMetadata().getPrice();
-        }
-        for (BookObject book: books)
-        {
-            if (book.getMetadata().getPrice()==highestPrice)
-                System.out.println(book.getTitle()+ " has the highest price, which is "+ book.getMetadata().getPrice());
-
-        }
+        int highestPrice = Arrays.stream(books)
+                .mapToInt(book -> book.getMetadata().getPrice())
+                .max()
+                .orElse(0);
+        Arrays.stream(books)
+                .filter(book -> book.getMetadata().getPrice() == highestPrice)
+                .forEach(book -> System.out.println(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
     }
 
-    public void getBookOfCategory (BookObject[] books, String Category)
-    {  String[] allBooks= new String[books.length];
-        int index=0;
-        for (BookObject book : books)
-        {
-            for (String categories:book.getMetadata().getCategories())
-            {
-                if (Objects.equals(categories, Category))
-                {
-                    allBooks[index]=book.getTitle();
-                    index++;
-                }
-            }
-        }
-        if (index==0)
-            System.out.println("There arent any books of this category in list");
-        else
-        {   for (int i=0; i<index;i++)
-            System.out.println(allBooks[i]);
-        }
-
+    public void getBookOfCategory (BookObject[] books, String category)
+    {   Arrays.stream(books)
+            .filter(book -> Arrays.stream(book.getMetadata().getCategories()).anyMatch(category::equals))
+            .map(BookObject::getTitle)
+            .forEach(System.out::println);
     }
 }
