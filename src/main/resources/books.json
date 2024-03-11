@@ -58,7 +58,7 @@
   {"title": "Book name",
     "Author": "William Shakespeare",
     "metadata": {
-      "price": 1500,
+      "price": 1805,
       "categories": ["fantasy","sci-fi"],
       "isbn":  1235465210275,
       "pages":  283}

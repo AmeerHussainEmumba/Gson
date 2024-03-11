@@ -1,5 +1,6 @@
 package LibraryActions;
 import Objects.BookObject;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -52,7 +53,7 @@ public class BookProcessor {
 
     public void getBookOfCategory (BookObject[] books, String category)
     {   Arrays.stream(books)
-            .filter(book -> Arrays.stream(book.getMetadata().getCategories()).anyMatch(category::equals))
+            .filter(book -> Arrays.asList(book.getMetadata().getCategories()).contains(category))
             .map(BookObject::getTitle)
             .forEach(System.out::println);
     }
