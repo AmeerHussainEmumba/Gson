@@ -3,23 +3,23 @@ import Objects.BookObject;
 
 import java.util.Arrays;
 import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 public class BookProcessor {
 
 
     public void displayBookInfo(BookObject[] books) {
         for (BookObject book : books)
         {
-            System.out.println("Title: " + book.getTitle());
-            System.out.println("Author: " + book.getAuthor());
-            System.out.println("Price: " + book.getMetadata().getPrice());
-            System.out.println("Categories: ");
+            log.info("Title: " + book.getTitle());
+            log.info("Author: " + book.getAuthor());
+            log.info("Price: " + book.getMetadata().getPrice());
+            log.info("Categories: ");
             for (String category : book.getMetadata().getCategories())
-                System.out.println("  - " + category);
-            System.out.println("ISBN: " + book.getMetadata().getIsbn());
-            System.out.println("Pages: " +book.getMetadata().getPages());
-            System.out.println();
+                log.info("  - " + category);
+            log.info("ISBN: " + book.getMetadata().getIsbn());
+            log.info("Pages: " +book.getMetadata().getPages());
         }
     }
 
@@ -28,7 +28,7 @@ public class BookProcessor {
         Arrays.stream(books)
                 .filter(book -> Objects.equals(book.getAuthor(), author))
                 .map(BookObject::getTitle)
-                .forEach(System.out::println);
+                .forEach(log::info);
     }
 
     public void getAveragePrice(BookObject[] books)
@@ -37,7 +37,7 @@ public class BookProcessor {
                 .mapToDouble(book -> book.getMetadata().getPrice())
                 .average()
                 .orElse(0);
-        System.out.println("The Average price is " + averagePrice);
+        log.info("The Average price is " + averagePrice);
     }
 
     public void getHighestPrice (BookObject[] books)
@@ -48,13 +48,14 @@ public class BookProcessor {
                 .orElse(0);
         Arrays.stream(books)
                 .filter(book -> book.getMetadata().getPrice() == highestPrice)
-                .forEach(book -> System.out.println(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
+                .forEach(book -> log.info(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
     }
 
     public void getBookOfCategory (BookObject[] books, String category)
     {   Arrays.stream(books)
             .filter(book -> Arrays.asList(book.getMetadata().getCategories()).contains(category))
             .map(BookObject::getTitle)
-            .forEach(System.out::println);
+            .forEach(log::info);
     }
 }
+

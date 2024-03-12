@@ -9,6 +9,5 @@ import lombok.Setter;
      private String title;
      private String author;
      private MetaData metadata;
-
 }
 

@@ -1,6 +1,6 @@
 [
   {"title": "A book",
-    "Author": "An Author",
+    "author": "An Author",
     "metadata": {
       "price": -50,
       "categories": ["Something was written here"],
@@ -8,7 +8,7 @@
       "pages":  283}
   },
   {"title": "Another book",
-    "Author": "Another Author",
+    "author": "Another Author",
     "metadata": {
       "price": 3520,
       "categories": ["Drama","Thriller"],
@@ -16,7 +16,7 @@
       "pages":  183}
   },
   {"title": "One more book",
-    "Author": "An Author",
+    "author": "An Author",
     "metadata": {
       "price": 3220,
       "categories": ["No one knows","Thriller"],
@@ -24,7 +24,7 @@
       "pages":  143}
   },
   {"title": "Wrong book",
-    "Author": "",
+    "author": "",
     "metadata": {
       "price": -200,
       "categories": ["",""],
@@ -32,7 +32,7 @@
       "pages":  -5}
   },
   {"title": "Ran out of creativity",
-    "Author": "Pakora",
+    "author": "Pakora",
     "metadata": {
       "price": 1500,
       "categories": "fishes",
@@ -40,7 +40,7 @@
       "pages":  334}
   },
   {"title": "You Don't Know JS Yet",
-    "Author": "Get Started",
+    "author": "Get Started",
     "metadata": {
       "price": 143,
       "categories": ["none"],
@@ -48,7 +48,7 @@
       "pages":  143}
   },
   {"title": "Book name???",
-    "Author": "WouldIWas ShookSpeared",
+    "author": "WouldIWas ShookSpeared",
     "metadata": {
       "price": 3545,
       "categories": ["Faluda","bhook lag rahi hay"],
@@ -56,7 +56,7 @@
       "pages":  3}
   },
   {"title": "Book name",
-    "Author": "William Shakespeare",
+    "author": "William Shakespeare",
     "metadata": {
       "price": 1805,
       "categories": ["fantasy","sci-fi"],
@@ -64,7 +64,7 @@
       "pages":  283}
   },
   {"title": "Book name",
-    "Author": "William Shakespeare",
+    "author": "William Shakespeare",
     "metadata": {
       "price": 1200,
       "categories": [],
