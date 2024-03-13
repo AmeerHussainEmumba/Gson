@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigInteger;
+import BookObjects.MetaData;
 import java.util.Objects;
 
 @Getter
@@ -28,16 +28,6 @@ public class Library {
         private String author;
         private MetaData metadata;
     }
-
-    @Getter
-    @Setter
-    public static class MetaData {
-        private int price;
-        private String[] categories;
-        private BigInteger isbn;
-        private int pages;
-    }
-
 
     public StringBuilder jsonFileErrorHandler(String filePath) {
         StringBuilder convertedString = jsonToString.jsonToString(filePath);
