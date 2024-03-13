@@ -1,12 +1,10 @@
 package org.example;
 
 import LibraryActions.Library;
-import Objects.*;
-
 public class MainApp {
     public static void main(String[] args) {
         Library library= new Library();
-        BookObject[] booksInLibrary= library.addBooksToLibrary("src/main/resources/books.json");
+        Library.BookObject[] booksInLibrary= library.addBooksToLibrary("src/main/resources/books.json");
         {
             //Display AllBooks
             library.getBookProcessor().displayBookInfo(booksInLibrary);

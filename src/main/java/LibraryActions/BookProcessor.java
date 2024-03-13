@@ -1,5 +1,5 @@
 package LibraryActions;
-import Objects.BookObject;
+import LibraryActions.Library;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -9,8 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 public class BookProcessor {
 
 
-    public void displayBookInfo(BookObject[] books) {
-        for (BookObject book : books)
+    public void displayBookInfo(Library.BookObject[] books) {
+        for (Library.BookObject book : books)
         {
             log.info("Title: " + book.getTitle());
             log.info("Author: " + book.getAuthor());
@@ -23,15 +23,15 @@ public class BookProcessor {
         }
     }
 
-    public void allBooksOfAnAuthor (BookObject[] books, String author)
+    public void allBooksOfAnAuthor (Library.BookObject[] books, String author)
     {
         Arrays.stream(books)
                 .filter(book -> Objects.equals(book.getAuthor(), author))
-                .map(BookObject::getTitle)
+                .map(Library.BookObject::getTitle)
                 .forEach(log::info);
     }
 
-    public void getAveragePrice(BookObject[] books)
+    public void getAveragePrice(Library.BookObject[] books)
     {
         double averagePrice = Arrays.stream(books)
                 .mapToDouble(book -> book.getMetadata().getPrice())
@@ -40,7 +40,7 @@ public class BookProcessor {
         log.info("The Average price is " + averagePrice);
     }
 
-    public void getHighestPrice (BookObject[] books)
+    public void getHighestPrice (Library.BookObject[] books)
     {
         int highestPrice = Arrays.stream(books)
                 .mapToInt(book -> book.getMetadata().getPrice())
@@ -51,11 +51,13 @@ public class BookProcessor {
                 .forEach(book -> log.info(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
     }
 
-    public void getBookOfCategory (BookObject[] books, String category)
+    public void getBookOfCategory (Library.BookObject[] books, String category)
     {   Arrays.stream(books)
             .filter(book -> Arrays.asList(book.getMetadata().getCategories()).contains(category))
-            .map(BookObject::getTitle)
+            .map(Library.BookObject::getTitle)
             .forEach(log::info);
     }
+
+
 }
 
