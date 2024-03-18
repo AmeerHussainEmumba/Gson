@@ -1,0 +1,10 @@
+
+‡
+java:S1192("KDefine a constant instead of duplicating this literal "categories" 3 times.(ö€ùêJ$a4ff8209-193f-4adc-9822-84ccc7d729c8
+‘	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Åô©øÿÿÿÿJ$24d2cc8f-2252-4822-a879-4dfaf009c619
+ˆ
+java:S22592"MA "NullPointerException" could be thrown; "categoriesValue" is nullable here.(•³û>J$008f1ca8-3407-4db4-986d-7a2c8fb0c220
+‰
+java:S2095E"HUse try-with-resources or close this "FileReader" in a "finally" clause.(Ú•ß¾ûÿÿÿÿJ$02b6171b-f9c2-4524-b40c-e73e724d9794
+
+java:S6201,"LReplace this instanceof check and cast with 'instanceof JSONArray jsonarray'(û«ÒûüÿÿÿÿJ$c6e5c75c-4e8c-4b47-b2ba-bdea40c959f2

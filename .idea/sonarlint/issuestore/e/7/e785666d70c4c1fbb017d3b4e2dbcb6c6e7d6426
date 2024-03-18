@@ -1,0 +1,11 @@
+
+›
+java:S1104"XMake jsonToString a static final constant or non-public and provide accessors if needed.(ŒãŞ°8²øÅáä1J$96360b8b-378e-4449-92ae-da2af9ec8830
+œ
+java:S1104"YMake bookProcessor a static final constant or non-public and provide accessors if needed.(á ›8²øÅáä1J$ff174ab8-1935-4276-a9a0-78453d7ad7a6
+
+java:S22596"MA "NullPointerException" could be thrown; "categoriesValue" is nullable here.(•³û>8ÜÏÈáä1J$ed08a046-7c1e-4720-bb66-c77988dda4c5
+
+java:S2095I"HUse try-with-resources or close this "FileReader" in a "finally" clause.(Ú•ß¾ûÿÿÿÿ8¸øÅáä1J$66936e26-338f-46d1-9c33-a8eca98b73cf
+”
+java:S62010"LReplace this instanceof check and cast with 'instanceof JSONArray jsonarray'(û«Òûüÿÿÿÿ8±õáä1J$cac83246-b54e-46a1-b415-f4c84b2c4ea3
