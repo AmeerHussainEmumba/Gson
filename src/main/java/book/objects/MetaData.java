@@ -1,4 +1,4 @@
-package BookObjects;
+package book.objects;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +12,4 @@ public class MetaData {
         private String[] categories;
         private BigInteger isbn;
         private int pages;
-
 }

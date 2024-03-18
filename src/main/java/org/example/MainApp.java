@@ -1,6 +1,6 @@
 package org.example;
 
-import LibraryActions.Library;
+import library.resources.Library;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 

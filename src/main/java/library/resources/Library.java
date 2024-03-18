@@ -1,4 +1,4 @@
-package LibraryActions;
+package library.resources;
 
 import com.google.gson.Gson;
 import lombok.Getter;
@@ -7,15 +7,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
-import BookObjects.MetaData;
+import book.objects.MetaData;
 import java.util.Objects;
 
 @Getter
 @Setter
 
-public class Library {
-    private JsonToString jsonToString=new JsonToString();
-    private BookProcessor bookProcessor=new BookProcessor();
+public class Library  {
+    public JsonToString jsonToString=new JsonToString();
+    public BookProcessor bookProcessor=new BookProcessor();
     public BookObject[] addBooksToLibrary(String filePath) {
         StringBuilder convertedString = jsonFileErrorHandler(filePath);
         Gson gson = new Gson();
@@ -30,32 +30,36 @@ public class Library {
     }
 
     public StringBuilder jsonFileErrorHandler(String filePath) {
+         final String categoriesKey="categories";
+         final String priceKey="price";
+         final String pagesKey="pages";
+         final String metaDataKey= "metadata";
         StringBuilder convertedString = jsonToString.jsonToString(filePath);
         JSONArray jsonArray = new JSONArray(convertedString.toString());
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject book = jsonArray.getJSONObject(i);
-            JSONObject metadata = book.getJSONObject("metadata");
-            int price = metadata.getInt("price");
-            int pages = metadata.getInt("pages");
-            Object categoriesValue = metadata.opt("categories");
-            JSONArray categoriesArray = new JSONArray();
+            JSONObject metadata = book.getJSONObject(metaDataKey);
+            int price = metadata.getInt(priceKey);
+            int pages = metadata.getInt(pagesKey);
+            Object categoriesValue = metadata.opt(categoriesKey);
 
+            JSONArray categoriesArray = new JSONArray();
             if (categoriesValue != null && !Objects.equals(categoriesValue.toString(), "[]")) {
                 if (categoriesValue instanceof JSONArray) {
                     categoriesArray = (JSONArray) categoriesValue;
                 } else {
                     categoriesArray.put(categoriesValue);
                 }
-                metadata.put("categories", categoriesArray);
+                metadata.put(categoriesKey, categoriesArray);
             } else if (Objects.equals(categoriesValue.toString(), "[]")) {
-                String[] Misc = {"Misc"};
-                metadata.put("categories", Misc);
+                String[] misc = {"Misc"};
+                metadata.put(categoriesKey, misc);
             }
             if (price < 0) {
-                metadata.put("price", price * -1);
+                metadata.put(priceKey, price * -1);
             }
             if (pages < 0) {
-                metadata.put("pages", pages * -1);
+                metadata.put(pagesKey, pages * -1);
             }
         }
         convertedString = new StringBuilder(jsonArray.toString());
