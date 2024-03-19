@@ -1,4 +1,4 @@
-package book.objects;
+package library.bookObjects;
 
 import lombok.Getter;
 import lombok.Setter;

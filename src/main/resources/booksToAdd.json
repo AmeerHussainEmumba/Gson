@@ -1,0 +1,18 @@
+[
+  {"title": "Newly Added Book",
+    "author": "New Author",
+    "metadata": {
+      "price": -1350,
+      "categories": ["A new category", "for a new book"],
+      "isbn":  1235972213971,
+      "pages":  277}
+  },
+  {"title": "2nd and last Newly Added Book",
+    "author": "Another Author",
+    "metadata": {
+      "price": 1450,
+      "categories": ["Comedy","Like my life"],
+      "isbn":  1390346833019,
+      "pages":  196}
+  }
+]

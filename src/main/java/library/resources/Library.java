@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.FileReader;
 import java.io.IOException;
-import book.objects.MetaData;
+import library.bookObjects.MetaData;
 import java.util.Objects;
 
 @Getter
@@ -16,11 +16,6 @@ import java.util.Objects;
 public class Library  {
     public JsonToString jsonToString=new JsonToString();
     public BookProcessor bookProcessor=new BookProcessor();
-    public BookObject[] addBooksToLibrary(String filePath) {
-        StringBuilder convertedString = jsonFileErrorHandler(filePath);
-        Gson gson = new Gson();
-        return gson.fromJson(convertedString.toString(), BookObject[].class);
-    }
     @Getter
     @Setter
     public static class BookObject {
@@ -28,7 +23,11 @@ public class Library  {
         private String author;
         private MetaData metadata;
     }
-
+    public BookObject[] addBooksToLibrary(String filePath) {
+        StringBuilder convertedString = jsonFileErrorHandler(filePath);
+        Gson gson = new Gson();
+        return gson.fromJson(convertedString.toString(), BookObject[].class);
+    }
     public StringBuilder jsonFileErrorHandler(String filePath) {
          final String categoriesKey="categories";
          final String priceKey="price";

@@ -7,7 +7,7 @@
       "isbn":  1235465210275,
       "pages":  283}
   },
-  {"title": "Another book",
+  {"title": "A book",
     "author": "Another Author",
     "metadata": {
       "price": 3520,
@@ -15,7 +15,7 @@
       "isbn":  1351026845620,
       "pages":  183}
   },
-  {"title": "One more book",
+  {"title": "A book",
     "author": "An Author",
     "metadata": {
       "price": 3220,
@@ -23,7 +23,7 @@
       "isbn":  1351065825620,
       "pages":  143}
   },
-  {"title": "Wrong book",
+  {"title": "A book",
     "author": "",
     "metadata": {
       "price": -200,
@@ -31,7 +31,7 @@
       "isbn":  555,
       "pages":  -5}
   },
-  {"title": "Ran out of creativity",
+  {"title": "A book",
     "author": "Pakora",
     "metadata": {
       "price": 1500,
@@ -39,7 +39,7 @@
       "isbn":  9781491943533,
       "pages":  334}
   },
-  {"title": "You Don't Know JS Yet",
+  {"title": "A book",
     "author": "Get Started",
     "metadata": {
       "price": 143,
@@ -47,7 +47,7 @@
       "isbn":  9798602477429,
       "pages":  143}
   },
-  {"title": "Book name???",
+  {"title": "A book",
     "author": "WouldIWas ShookSpeared",
     "metadata": {
       "price": 3545,
@@ -55,7 +55,7 @@
       "isbn":  3979702471039,
       "pages":  3}
   },
-  {"title": "Book name",
+  {"title": "A book",
     "author": "William Shakespeare",
     "metadata": {
       "price": 1805,
