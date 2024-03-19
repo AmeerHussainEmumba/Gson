@@ -7,7 +7,6 @@ import java.math.BigInteger;
 @Getter
 @Setter
 public class MetaData {
-
         private int price;
         private String[] categories;
         private BigInteger isbn;

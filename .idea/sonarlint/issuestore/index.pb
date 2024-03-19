@@ -127,3 +127,9 @@ X
 (src/main/java/user/subscriberStatus.java,a/f/af260a925b6d094bfadb31e8821b0361af6ba447
 S
 #src/main/java/user/userObjects.java,e/6/e66a8ecbc2afbbca6da5c1d48dcfedc05395668c
+X
+(src/main/java/user/SubscriberStatus.java,9/f/9fdca0c4a7b5422f03c5fdad9476788880a44635
+S
+#src/main/java/user/UserObjects.java,3/d/3dfeb0bbf49f79abfc98290578558f65b50c5b46
+g
+7src/main/java/library/resources/LibraryConstructor.java,0/b/0b00fe6ecb425aef7019df5d6cc5c88e9aa9a6bb

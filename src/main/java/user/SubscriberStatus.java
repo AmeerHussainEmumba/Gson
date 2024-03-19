@@ -1,7 +1,11 @@
 package user;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
-public abstract class subscriberStatus {
+@Getter
+@Setter
+public abstract class SubscriberStatus {
     boolean isSubscribed=false;
 
     public void setSubscribed(boolean status)
@@ -14,8 +18,7 @@ public abstract class subscriberStatus {
         if (status)
             log.info("user has subscribed to the library");
         else
-            log.info("user has unsubscribed from the library");
+            log.info("user is not subscribed to the library");
     }
-
 
 }

@@ -1,15 +1,18 @@
 package library.resources;
 
-import java.awt.print.Book;
+import user.UserObjects;
+
 import java.util.List;
 
 public interface LibraryPerformable {
 
-    void displayBookInfo(Library.BookObject[] books);
-     List<String> allBooksOfAnAuthor (Library.BookObject[] books, String author);
-    double getAveragePrice(Library.BookObject[] books);
-    List<Library.BookObject> getHighestPrice (Library.BookObject[] books);
-    List<String> getBookOfCategory (Library.BookObject[] books, String category);
-    Library.BookObject[]  addBookToLibrary(Library.BookObject[] existingBookLibrary, String filepathToNewBooks);
-   Library.BookObject[] removeBookFromLibrary(Library.BookObject[] books, String nameOfBookToRemove);
+    void displayBookInfo(LibraryConstructor.BookObject[] books);
+    List<String> allBooksOfAnAuthor (LibraryConstructor.BookObject[] books, String author);
+    double getAveragePrice(LibraryConstructor.BookObject[] books);
+    List<LibraryConstructor.BookObject> getHighestPrice (LibraryConstructor.BookObject[] books);
+    List<String> getBookOfCategory (LibraryConstructor.BookObject[] books, String category);
+    LibraryConstructor.BookObject[]  addBookToLibrary(LibraryConstructor.BookObject[] existingBookLibrary, String filepathToNewBooks);
+    LibraryConstructor.BookObject[] removeBookFromLibrary(LibraryConstructor.BookObject[] books, String nameOfBookToRemove);
+    void subscribeNewUsers(UserObjects user);
+    void unsubscribeUsers(UserObjects user);
 }

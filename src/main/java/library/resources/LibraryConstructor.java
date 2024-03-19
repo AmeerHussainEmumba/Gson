@@ -13,7 +13,7 @@ import java.util.Objects;
 @Getter
 @Setter
 
-public class Library  {
+public class LibraryConstructor {
     public JsonToString jsonToString=new JsonToString();
     public BookProcessor bookProcessor=new BookProcessor();
     @Getter

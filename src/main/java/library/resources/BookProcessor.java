@@ -1,6 +1,7 @@
 package library.resources;
 
 import lombok.extern.slf4j.Slf4j;
+import user.UserObjects;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import static java.util.stream.Collectors.toList;
 @Slf4j
 public class BookProcessor implements LibraryPerformable {
 
-    public void displayBookInfo(Library.BookObject[] books)
+    public void displayBookInfo(LibraryConstructor.BookObject[] books)
     {
         Arrays.stream(books).toList().forEach(book -> {
         log.info("Title: " + book.getTitle());
@@ -29,27 +30,27 @@ public class BookProcessor implements LibraryPerformable {
     }
 
 
-    public List<String> allBooksOfAnAuthor (Library.BookObject[] books, String author)
+    public List<String> allBooksOfAnAuthor (LibraryConstructor.BookObject[] books, String author)
     {   String pretext= "these are the book(s) of the author "+author;
 
          List<String>returnBooksOfAuthor= Arrays.stream(books)
                 .filter(book -> Objects.equals(book.getAuthor(), author))
-                .map(Library.BookObject::getTitle)
+                .map(LibraryConstructor.BookObject::getTitle)
                  .collect(toList());
           returnBooksOfAuthor.addFirst(pretext);
           return returnBooksOfAuthor;
     }
 
-    public Library.BookObject[] removeBookFromLibrary(Library.BookObject[] books, String nameOfBookToRemove)
-    {   Library.BookObject[] newLibrary;
-        List<Library.BookObject> remainingBooksList = Arrays.stream(books)
+    public LibraryConstructor.BookObject[] removeBookFromLibrary(LibraryConstructor.BookObject[] books, String nameOfBookToRemove)
+    {   LibraryConstructor.BookObject[] newLibrary;
+        List<LibraryConstructor.BookObject> remainingBooksList = Arrays.stream(books)
                 .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
                 .collect(Collectors.toList());
-        newLibrary = remainingBooksList.toArray(new Library.BookObject[0]);
+        newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
         return newLibrary;
     }
 
-    public double getAveragePrice(Library.BookObject[] books)
+    public double getAveragePrice(LibraryConstructor.BookObject[] books)
     {
        return Arrays.stream(books)
                 .mapToDouble(book -> book.getMetadata().getPrice())
@@ -57,7 +58,7 @@ public class BookProcessor implements LibraryPerformable {
                 .orElse(0);
     }
 
-    public List<Library.BookObject> getHighestPrice (Library.BookObject[] books)
+    public List<LibraryConstructor.BookObject> getHighestPrice (LibraryConstructor.BookObject[] books)
     {
          int highestPrice = Arrays.stream(books)
                 .mapToInt(book -> book.getMetadata().getPrice())
@@ -67,22 +68,30 @@ public class BookProcessor implements LibraryPerformable {
                 .filter(book -> book.getMetadata().getPrice() == highestPrice).toList();
     }
 
-    public List<String> getBookOfCategory (Library.BookObject[] books, String category)
+    public List<String> getBookOfCategory (LibraryConstructor.BookObject[] books, String category)
     {    String pretext="these are the book(s) of the category "+category;
         List<String> returnBooksOfCategory= Arrays.stream(books)
             .filter(book -> Arrays.asList(book.getMetadata().getCategories()).contains(category))
-            .map(Library.BookObject::getTitle).collect(toList());
+            .map(LibraryConstructor.BookObject::getTitle).collect(toList());
          returnBooksOfCategory.addFirst(pretext);
          return returnBooksOfCategory;
     }
 
-    public Library.BookObject[] addBookToLibrary(Library.BookObject[] existingBookLibrary, String filepathToNewBooks)
-    {   Library tempLibrary= new Library();
-        Library.BookObject[] newBooksToAdd =tempLibrary.addBooksToLibrary(filepathToNewBooks);
-        Stream<Library.BookObject> newLibrary= Stream.concat(Arrays.stream(existingBookLibrary),Arrays.stream(newBooksToAdd));
-        return newLibrary.toArray(Library.BookObject[]::new);
+    public LibraryConstructor.BookObject[] addBookToLibrary(LibraryConstructor.BookObject[] existingBookLibrary, String filepathToNewBooks)
+    {   LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
+        LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
+        Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(existingBookLibrary),Arrays.stream(newBooksToAdd));
+        return newLibrary.toArray(LibraryConstructor.BookObject[]::new);
+
     }
 
+public  void subscribeNewUsers(UserObjects user)
+{
 
+}
+  public   void unsubscribeUsers(UserObjects user)
+  {
+
+  }
 }
 
