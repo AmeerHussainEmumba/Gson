@@ -1,13 +1,19 @@
 package library.resources;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.gson.Gson;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.io.FileReader;
 import java.io.IOException;
 import library.bookObjects.MetaData;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @Getter
@@ -80,5 +86,11 @@ public class LibraryConstructor {
             }
             return jsonString;
         }
+    }
+    public BiMap<String,BookObject[]> createLibraryNameAssociation (String name, BookObject[] libraryOfBooks)
+    {
+        BiMap<String,LibraryConstructor.BookObject[]>association= HashBiMap.create();
+        association.put(name,libraryOfBooks);
+        return association;
     }
 }

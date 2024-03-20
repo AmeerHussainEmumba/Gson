@@ -1,4 +1,5 @@
 package user;
+import com.google.common.collect.BiMap;
 import library.resources.LibraryConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,18 +13,17 @@ import java.util.Map;
 @Setter
 public abstract class SubscriberStatus {
     boolean subscriptionStatus=false;
-    Map<LibraryConstructor.BookObject[],Boolean>subscriptionMap=new HashMap<>();
+    Map<String,Boolean>subscriptionMap=new HashMap<>();
 
-    public void setNewSubscriptionStatus(LibraryConstructor.BookObject[] booksInLibrary, boolean newStatus)
-    {
-        subscriptionMap.put(booksInLibrary,newStatus);
+    public void setNewSubscriptionStatus(BiMap<String, LibraryConstructor.BookObject[]> associationMap,LibraryConstructor.BookObject[] booksInLibrary, boolean newStatus)
+    {  String libraryName=associationMap.inverse().get(booksInLibrary);
+        subscriptionMap.put(libraryName,newStatus);
         subscriptionStatus=newStatus;
         printSubscriptionStats(this.subscriptionStatus);
     }
-    public boolean checkSubsciptionStatus (LibraryConstructor.BookObject[] booksInLibrary)
-    {
-        if (subscriptionMap.get(booksInLibrary  ).booleanValue())
-        return true;
+    public boolean checkSubsciptionStatus (String booksInLibrary)
+    {   if (subscriptionMap.get(booksInLibrary).booleanValue())
+            return true;
         else
         return false;
     }

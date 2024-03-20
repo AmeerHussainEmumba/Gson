@@ -1,10 +1,11 @@
 package code.main;
 
+import com.google.common.collect.BiMap;
 import library.resources.LibraryConstructor;
 import lombok.extern.slf4j.Slf4j;
 import user.UserObjects;
 
-import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -16,13 +17,14 @@ public class MainApp {
         String userThreeName= "Third User";
 
         LibraryConstructor.BookObject[] booksInLibrary = libraryConstructorOfBooks.addBooksToLibrary("src/main/resources/books.json");
+        BiMap<String, LibraryConstructor.BookObject[]> associationOfLibraryOne=libraryConstructorOfBooks.createLibraryNameAssociation("Library Prime", booksInLibrary);
         UserObjects[] allUsers = Stream.of(userOneName, userTwoName, userThreeName)
                 .map(UserObjects::new)
                 .toArray(UserObjects[]::new);
 
-        allUsers[0].setNewSubscriptionStatus(booksInLibrary, false);
-        allUsers[1].setNewSubscriptionStatus(booksInLibrary,true);
-        allUsers[2].setNewSubscriptionStatus(booksInLibrary,true);
+        allUsers[0].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary, false);
+        allUsers[1].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary,true);
+        allUsers[2].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary,true);
 
 //        //Display AllBooks
 //        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
@@ -44,12 +46,11 @@ public class MainApp {
 //        booksOfCategory.forEach(log::info);
 //
 //        Add book from  library
-          booksInLibrary = libraryConstructorOfBooks.bookProcessor.addBookToLibrary(booksInLibrary, "src/main/resources/booksToAdd.json",allUsers);
+          associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.addBookToLibrary(booksInLibrary, "src/main/resources/booksToAdd.json",allUsers, associationOfLibraryOne);
 //        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
-//
-//
+
 //       Remove book from  library
-          booksInLibrary =libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary(booksInLibrary, "A book",allUsers);
+         associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary(booksInLibrary, "A book",allUsers, associationOfLibraryOne);
           //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 //
 //
