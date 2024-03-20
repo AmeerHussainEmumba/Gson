@@ -41,15 +41,6 @@ public class BookProcessor implements LibraryPerformable {
           return returnBooksOfAuthor;
     }
 
-    public LibraryConstructor.BookObject[] removeBookFromLibrary(LibraryConstructor.BookObject[] books, String nameOfBookToRemove)
-    {   LibraryConstructor.BookObject[] newLibrary;
-        List<LibraryConstructor.BookObject> remainingBooksList = Arrays.stream(books)
-                .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
-                .collect(Collectors.toList());
-        newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
-        return newLibrary;
-    }
-
     public double getAveragePrice(LibraryConstructor.BookObject[] books)
     {
        return Arrays.stream(books)
@@ -77,7 +68,7 @@ public class BookProcessor implements LibraryPerformable {
          return returnBooksOfCategory;
     }
 
-    public LibraryConstructor.BookObject[] addBookToLibrary(LibraryConstructor.BookObject[] existingBookLibrary, String filepathToNewBooks)
+    public LibraryConstructor.BookObject[] addBookToLibrary(LibraryConstructor.BookObject[] existingBookLibrary, String filepathToNewBooks, UserObjects[] allUsers)
     {   LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
         LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
         Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(existingBookLibrary),Arrays.stream(newBooksToAdd));
@@ -85,13 +76,23 @@ public class BookProcessor implements LibraryPerformable {
 
     }
 
-public  void subscribeNewUsers(UserObjects user)
-{
+    public LibraryConstructor.BookObject[] removeBookFromLibrary(LibraryConstructor.BookObject[] books, String nameOfBookToRemove, UserObjects[] allUsers)
+    {   LibraryConstructor.BookObject[] newLibrary;
+        List<LibraryConstructor.BookObject> remainingBooksList = Arrays.stream(books)
+                .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
+                .collect(Collectors.toList());
+        newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
+        Arrays.stream(allUsers).filter(userObjects -> userObjects.isSubscriptionStatus())  //library kay mutbiq nai hay sirf yes no hay :(
+        return newLibrary;
+    }
 
-}
-  public   void unsubscribeUsers(UserObjects user)
-  {
+    public void subscribeNewUsers(UserObjects user, LibraryConstructor.BookObject[] libraryOfBooks)
+    {
 
-  }
+    }
+    public void unsubscribeUsers(UserObjects user, LibraryConstructor.BookObject[] libraryOfBooks)
+    {
+
+    }
 }
 
