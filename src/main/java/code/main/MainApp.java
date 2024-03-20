@@ -47,11 +47,11 @@ public class MainApp {
 //
 //        Add book from  library
           associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json",allUsers, associationOfLibraryOne);
-//        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+          //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 
 //       Remove book from  library
          associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary("A book",allUsers, associationOfLibraryOne);
-          //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+         //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 //
 //
 

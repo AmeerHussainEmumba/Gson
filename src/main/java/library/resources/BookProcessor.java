@@ -74,9 +74,12 @@ public class BookProcessor implements LibraryPerformable {
     {   String libraryName=associationOfLibrary.keySet().iterator().next();
         LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
         LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
+        String [] bookTitles= Arrays.stream(newBooksToAdd)
+                            .map(bookObject -> bookObject.getTitle())
+                            .toArray(String[]::new);
         Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(associationOfLibrary.get(libraryName)),Arrays.stream(newBooksToAdd));
         Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
-                .forEach(user -> log.info(user.getUserName() +" now knows that new book(s) has been added"));
+                .forEach(user -> log.info(user.getUserName() +" now knows that "+ Arrays.stream(bookTitles).toList()+" have/have been added"));
         BiMap<String, LibraryConstructor.BookObject[]> biMap= HashBiMap.create();
         LibraryConstructor.BookObject[] biMapObject= newLibrary.toArray(LibraryConstructor.BookObject[]::new);
         biMap.put(libraryName,biMapObject);

@@ -1,11 +1,13 @@
 
 Δ
-java:S1186e"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ϊ®Χ8°Μωθε1J$2b320375-30ab-4c70-9b14-b1b8c8431abf
+java:S1186h"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ϊ®Χ8α‰Λιε1J$c20f589d-0c32-4dd1-8676-dc8dc7287e0a
 Δ
-java:S1186i"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ωρ·ο8°Μωθε1J$57f6cb17-71ab-4adb-84bb-cd5a93cb632b
+java:S1186l"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ωρ·ο8α‰Λιε1J$ba35838d-237e-4db9-ae91-461b26a52706
 •
-java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(β¥8΄Μωθε1J$c352d076-e0dc-4ad3-afd3-a45faa3eacee
+java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(β¥8ε‰Λιε1J$2720ac70-96d5-4311-a610-62b57a71e449
 •
-java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Βύκκ8¶Μωθε1J$ab9edab4-e74b-4212-af5f-2c3023023649
+java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Βύκκ8η‰Λιε1J$441d1e28-6c0a-4f73-89f0-d4452f3a6ff5
+‰
+java:S1612N"AReplace this lambda with method reference 'BookObject::getTitle'.(ΫΓ¨Ζωÿÿÿÿ8ι‰Λιε1J$ae6a59ca-380d-46c5-b9d8-ee96accbe7f0
 •
-java:S6204\"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή8ΉΜωθε1J$0628eaff-e4cb-442f-bcdb-88c67a4f67f7
+java:S6204_"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή8Λιε1J$9da40e2d-e9aa-4924-8321-0ed5d640c63a
