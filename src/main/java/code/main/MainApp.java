@@ -46,11 +46,11 @@ public class MainApp {
 //        booksOfCategory.forEach(log::info);
 //
 //        Add book from  library
-          associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.addBookToLibrary(booksInLibrary, "src/main/resources/booksToAdd.json",allUsers, associationOfLibraryOne);
+          associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json",allUsers, associationOfLibraryOne);
 //        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 
 //       Remove book from  library
-         associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary(booksInLibrary, "A book",allUsers, associationOfLibraryOne);
+         associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary("A book",allUsers, associationOfLibraryOne);
           //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 //
 //
