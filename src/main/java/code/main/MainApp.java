@@ -20,9 +20,9 @@ public class MainApp {
                 .map(UserObjects::new)
                 .toArray(UserObjects[]::new);
 
-        allUsers[1].setNewSubscriptionStatus(booksInLibrary, false);
+        allUsers[0].setNewSubscriptionStatus(booksInLibrary, false);
+        allUsers[1].setNewSubscriptionStatus(booksInLibrary,true);
         allUsers[2].setNewSubscriptionStatus(booksInLibrary,true);
-        allUsers[3].setNewSubscriptionStatus(booksInLibrary,true);
 
 //        //Display AllBooks
 //        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
@@ -43,14 +43,17 @@ public class MainApp {
 //        List<String> booksOfCategory = libraryConstructorOfBooks.getBookProcessor().getBookOfCategory(booksInLibrary, "Thriller");
 //        booksOfCategory.forEach(log::info);
 //
+//        Add book from  library
+          booksInLibrary = libraryConstructorOfBooks.bookProcessor.addBookToLibrary(booksInLibrary, "src/main/resources/booksToAdd.json",allUsers);
+//        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 //
-//        //Remove book from  library
-           booksInLibrary =libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary(booksInLibrary, "A book",allUsers);
-           libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
 //
-//        //Add book from  library
-        booksInLibrary = libraryConstructorOfBooks.bookProcessor.addBookToLibrary(booksInLibrary, "src/main/resources/booksToAdd.json",allUsers);
-        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+//       Remove book from  library
+          booksInLibrary =libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary(booksInLibrary, "A book",allUsers);
+          //libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+//
+//
+
 
     }
 }

@@ -12,12 +12,20 @@ import java.util.Map;
 @Setter
 public abstract class SubscriberStatus {
     boolean subscriptionStatus=false;
+    Map<LibraryConstructor.BookObject[],Boolean>subscriptionMap=new HashMap<>();
 
-    public void setNewSubscriptionStatus(LibraryConstructor.BookObject[] booksInLibrary, boolean status)
+    public void setNewSubscriptionStatus(LibraryConstructor.BookObject[] booksInLibrary, boolean newStatus)
     {
-        Map<LibraryConstructor.BookObject[],Boolean>subscriptionMap=new HashMap<>();
-        subscriptionMap.put(booksInLibrary,status);
+        subscriptionMap.put(booksInLibrary,newStatus);
+        subscriptionStatus=newStatus;
         printSubscriptionStats(this.subscriptionStatus);
+    }
+    public boolean checkSubsciptionStatus (LibraryConstructor.BookObject[] booksInLibrary)
+    {
+        if (subscriptionMap.get(booksInLibrary  ).booleanValue())
+        return true;
+        else
+        return false;
     }
     public void printSubscriptionStats(boolean status)
     {

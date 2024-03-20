@@ -72,6 +72,9 @@ public class BookProcessor implements LibraryPerformable {
     {   LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
         LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
         Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(existingBookLibrary),Arrays.stream(newBooksToAdd));
+        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubsciptionStatus(existingBookLibrary))
+                .forEach(user -> log.info(user.getUserName() +" now knows kay nai book dal gai hay"));
+
         return newLibrary.toArray(LibraryConstructor.BookObject[]::new);
 
     }
@@ -82,7 +85,8 @@ public class BookProcessor implements LibraryPerformable {
                 .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
                 .collect(Collectors.toList());
         newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
-        Arrays.stream(allUsers).filter(userObjects -> userObjects.isSubscriptionStatus())  //library kay mutbiq nai hay sirf yes no hay :(
+        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubsciptionStatus(books))
+                .forEach(user -> log.info(user.getUserName() +" now knows kay book nikal gai"));
         return newLibrary;
     }
 
