@@ -21,12 +21,20 @@ public abstract class SubscriberStatus {
         subscriptionStatus=newStatus;
         printSubscriptionStats(this.subscriptionStatus);
     }
-    public boolean checkSubsciptionStatus (String booksInLibrary)
-    {   if (subscriptionMap.get(booksInLibrary).booleanValue())
-            return true;
+
+    public boolean checkSubscriptionExistence(String booksInLibrary)
+    {  if (subscriptionMap.containsKey(booksInLibrary))
+        return true;
         else
-        return false;
+            return false;
     }
+    public boolean checkSubsciptionStatus (String booksInLibrary) {
+            if (subscriptionMap.get(booksInLibrary).booleanValue())
+                return true;
+            else
+                return false;
+        }
+
     public void printSubscriptionStats(boolean status)
     {
         if (status)
@@ -37,7 +45,6 @@ public abstract class SubscriberStatus {
     public abstract  void notifyBookWasAdded (String bookName);
 
     public abstract void notifyBookRemoval(String bookName);
-
 
 
 }

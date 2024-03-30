@@ -78,7 +78,8 @@ public class BookProcessor implements LibraryPerformable {
                             .map(bookObject -> bookObject.getTitle())
                             .toArray(String[]::new);
         Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(associationOfLibrary.get(libraryName)),Arrays.stream(newBooksToAdd));
-        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
+
+        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubscriptionExistence(libraryName)).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
                 .forEach(user -> log.info(user.getUserName() +" now knows that "+ Arrays.stream(bookTitles).toList()+" have/have been added"));
         BiMap<String, LibraryConstructor.BookObject[]> biMap= HashBiMap.create();
         LibraryConstructor.BookObject[] biMapObject= newLibrary.toArray(LibraryConstructor.BookObject[]::new);
@@ -94,20 +95,20 @@ public class BookProcessor implements LibraryPerformable {
                 .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
                 .collect(Collectors.toList());
         newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
-        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
+        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubscriptionExistence(libraryName)).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
                 .forEach(user -> log.info(user.getUserName() +" now knows that "+nameOfBookToRemove+" book has been removed"));
         BiMap<String, LibraryConstructor.BookObject[]> biMap= HashBiMap.create();
         biMap.put(libraryName,newLibrary);
         return biMap;
     }
 
-    public void subscribeNewUsers(UserObjects user, LibraryConstructor.BookObject[] libraryOfBooks)
+    public void subscribeNewUsers(UserObjects user, BiMap<String, LibraryConstructor.BookObject[]> associationMap,LibraryConstructor.BookObject[] booksInLibrary)
     {
-
+       user.setNewSubscriptionStatus(associationMap,booksInLibrary, true);
     }
-    public void unsubscribeUsers(UserObjects user, LibraryConstructor.BookObject[] libraryOfBooks)
+    public void unsubscribeUsers(UserObjects user, BiMap<String, LibraryConstructor.BookObject[]> associationMap,LibraryConstructor.BookObject[] booksInLibrary)
     {
-
+        user.setNewSubscriptionStatus(associationMap,booksInLibrary, false);
     }
 }
 

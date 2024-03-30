@@ -5,7 +5,6 @@ import library.resources.LibraryConstructor;
 import lombok.extern.slf4j.Slf4j;
 import user.UserObjects;
 
-import java.util.Map;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -21,10 +20,10 @@ public class MainApp {
         UserObjects[] allUsers = Stream.of(userOneName, userTwoName, userThreeName)
                 .map(UserObjects::new)
                 .toArray(UserObjects[]::new);
+        libraryConstructorOfBooks.bookProcessor.subscribeNewUsers(allUsers[1],associationOfLibraryOne,booksInLibrary);
+        libraryConstructorOfBooks.bookProcessor.subscribeNewUsers(allUsers[2],associationOfLibraryOne,booksInLibrary);
+        libraryConstructorOfBooks.bookProcessor.unsubscribeUsers(allUsers[0],associationOfLibraryOne,booksInLibrary);
 
-        allUsers[0].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary, false);
-        allUsers[1].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary,true);
-        allUsers[2].setNewSubscriptionStatus(associationOfLibraryOne,booksInLibrary,true);
 
 //        //Display AllBooks
 //        libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
