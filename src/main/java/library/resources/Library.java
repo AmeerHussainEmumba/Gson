@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import user.UserObjects;
 
+
 @Getter
 @Setter
 
@@ -31,7 +32,7 @@ public class Library extends SubscriberStatus{
     public void removeSubscriber (UserObjects user)
     { removeExistingSubscription(user);}
 
-    public  void notifyBookWasAdded (UserObjects user,  String bookName)
+    public  void notifyBookWasAdded (UserObjects user, String bookName)
     { user.notifier(bookName, libraryName,"Added");}
 
     public  void notifyBookRemoval(UserObjects user, String bookName)

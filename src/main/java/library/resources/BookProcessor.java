@@ -3,12 +3,9 @@ package library.resources;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import lombok.extern.slf4j.Slf4j;
-import user.UserObjects;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -73,37 +70,38 @@ public class BookProcessor implements LibraryPerformable {
          return returnBooksOfCategory;
     }
 
-//    public BiMap<String, LibraryConstructor.BookObject[]> addBookToLibrary(String filepathToNewBooks, UserObjects[] allUsers, BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary)
-//    {   String libraryName=associationOfLibrary.keySet().iterator().next();
-//        LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
-//        LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
-//        String [] bookTitles= Arrays.stream(newBooksToAdd)
-//                            .map(bookObject -> bookObject.getTitle())
-//                            .toArray(String[]::new);
-//        Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(associationOfLibrary.get(libraryName)),Arrays.stream(newBooksToAdd));
-//
-//        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubscriptionExistence(libraryName)).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
-//                .forEach(user -> log.info(user.getUserName() +" now knows that "+ Arrays.stream(bookTitles).toList()+" have/have been added"));
-//        BiMap<String, LibraryConstructor.BookObject[]> biMap= HashBiMap.create();
-//        LibraryConstructor.BookObject[] biMapObject= newLibrary.toArray(LibraryConstructor.BookObject[]::new);
-//        biMap.put(libraryName,biMapObject);
-//        return biMap;
-//    }
-//
-//    public BiMap<String, LibraryConstructor.BookObject[]> removeBookFromLibrary(String nameOfBookToRemove, UserObjects[] allUsers, BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary)
-//    {
-//        String libraryName=associationOfLibrary.keySet().iterator().next();
-//        LibraryConstructor.BookObject[] newLibrary;
-//        List<LibraryConstructor.BookObject> remainingBooksList = Arrays.stream(associationOfLibrary.get(libraryName))
-//                .filter(book -> !book.getTitle().equals(nameOfBookToRemove))
-//                .collect(Collectors.toList());
-//        newLibrary = remainingBooksList.toArray(new LibraryConstructor.BookObject[0]);
-//        Arrays.stream(allUsers).filter(userObjects -> userObjects.checkSubscriptionExistence(libraryName)).filter(userObjects -> userObjects.checkSubsciptionStatus(libraryName))
-//                .forEach(user -> log.info(user.getUserName() +" now knows that "+nameOfBookToRemove+" book has been removed"));
-//        BiMap<String, LibraryConstructor.BookObject[]> biMap= HashBiMap.create();
-//        biMap.put(libraryName,newLibrary);
-//        return biMap;
-//    }
+    public LibraryConstructor.BookObject[] addBookToLibrary(String filepathToNewBooks, Library library)
+    {   BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary= library.associationOfLibrary;
+        String libraryName=library.libraryName;
+
+        LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
+        LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
+        String [] bookTitles= Arrays.stream(newBooksToAdd)
+                            .map(LibraryConstructor.BookObject::getTitle)
+                            .toArray(String[]::new);
+        Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(associationOfLibrary.get(libraryName)),Arrays.stream(newBooksToAdd));
+
+        library.subscribedUsers.forEach(userObjects -> library.notifyBookWasAdded(userObjects, String.valueOf(Arrays.stream(bookTitles).toList())));
+        LibraryConstructor.BookObject[] finalBooks= newLibrary.toArray(LibraryConstructor.BookObject[]::new);
+        books= finalBooks;
+        return  finalBooks;
+    }
+
+    public LibraryConstructor.BookObject[] removeBookFromLibrary(String nameOfBookToRemove, Library library)
+    {
+        BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary= library.associationOfLibrary;
+        String libraryName=library.libraryName;
+        LibraryConstructor.BookObject[] newLibrary;
+        if (Arrays.stream(associationOfLibrary.get(libraryName)).anyMatch(book -> book.getTitle().equals(nameOfBookToRemove)))
+        { newLibrary = Arrays.stream(associationOfLibrary.get(libraryName))
+                .filter(book -> !book.getTitle().equals(nameOfBookToRemove)).toArray(LibraryConstructor.BookObject[]::new);
+        library.subscribedUsers.forEach(userObjects -> library.notifyBookRemoval(userObjects, nameOfBookToRemove));
+            books= newLibrary;
+            return newLibrary;}
+        else
+        {
+            log.info("The book named "+ nameOfBookToRemove+" never existed in the library "+ libraryName);
+            return books;}
+    }
 
 }
-

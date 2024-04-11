@@ -7,7 +7,7 @@
       "isbn":  1235465210275,
       "pages":  283}
   },
-  {"title": "A book",
+  {"title": "Another book from old",
     "author": "Another Author",
     "metadata": {
       "price": 3520,
@@ -71,5 +71,4 @@
       "isbn":  1235465210275,
       "pages":  283}
   }
-
 ]

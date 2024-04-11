@@ -25,9 +25,9 @@ public class MainApp {
                 .toArray(UserObjects[]::new);
 
         libraryPrime.addSubscriber(allUsers[1]);
-        libraryPrime.printSubscriptionStats(allUsers[0]);
-        libraryPrime.printSubscriptionStats(allUsers[1]);
-        libraryPrime.printSubscriptionStats(allUsers[2]);
+//        libraryPrime.printSubscriptionStats(allUsers[0]);
+//        libraryPrime.printSubscriptionStats(allUsers[1]);
+//        libraryPrime.printSubscriptionStats(allUsers[2]);
 
 
            //Display AllBooks
@@ -49,12 +49,12 @@ public class MainApp {
 //           booksOfCategory.forEach(log::info);
 
            //Add book from  library
-//           associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json",allUsers, associationOfLibraryOne);
-//           libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+             libraryPrime.libraryBooks= libraryPrime.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json", libraryPrime);
+             libraryPrime.bookProcessor.displayBookInfo();
 
           //Remove book from  library
-//           associationOfLibraryOne = libraryConstructorOfBooks.bookProcessor.removeBookFromLibrary("A book",allUsers, associationOfLibraryOne);
-//           libraryConstructorOfBooks.getBookProcessor().displayBookInfo(booksInLibrary);
+             libraryPrime.libraryBooks = libraryPrime.bookProcessor.removeBookFromLibrary("A book", libraryPrime);
+             libraryPrime.bookProcessor.displayBookInfo();
 
     }
 }

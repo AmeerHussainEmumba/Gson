@@ -1,6 +1,9 @@
 
-o
-java:S6204,"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8©æòì1
-o
-java:S6204G"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8¬æòì1
-~	java:S125M"<This block of commented-out lines of code should be removed.(Ã·Õâ8 À·ğì1J$e7793172-2713-4357-b23a-af128bd679a8
+•
+java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8Èİ–õì1J$224600ed-e31d-4f15-b7f2-3df2ce630fb4
+•
+java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8Ëİ–õì1J$1d5f3196-04cf-4ba1-8e3a-17aaee26a50e
+z
+java:S2440M"2Remove this instantiation of "LibraryConstructor".(”Œ’Ûúÿÿÿÿ8Îİ–õì1J$a72a5c47-b29a-4af1-b63f-da26d8b8339e
+x
+java:S2209N"5Change this instance-reference to a static reference.(¾ÈéÏ8Îİ–õì1J$7dbef73f-b8d6-4c4e-b779-49c5b570b01e
