@@ -1,9 +1,6 @@
 
-•
-java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8´µ¹ÿè1J$ee6201bd-ec1a-40fd-b677-1a398f703d29
-•
-java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8·µ¹ÿè1J$286ee2ed-569a-48da-bcfa-bf5ccf2f7849
-‰
-java:S1612N"AReplace this lambda with method reference 'BookObject::getTitle'.(ÛÃ¨Æùÿÿÿÿ8ºµ¹ÿè1J$1c404a6e-a4f5-4073-b3a3-d745531edb9d
-•
-java:S6204`"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8¼µ¹ÿè1J$9d1f600a-8c5b-4893-9bf4-1659e446ba33
+o
+java:S6204,"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8©æòì1
+o
+java:S6204G"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8¬æòì1
+~	java:S125M"<This block of commented-out lines of code should be removed.(Ã·Õâ8 À·ğì1J$e7793172-2713-4357-b23a-af128bd679a8

@@ -7,21 +7,16 @@ import lombok.Getter;
 import lombok.Setter;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.FileReader;
 import java.io.IOException;
 import library.bookObjects.MetaData;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 @Getter
 @Setter
 
-public class LibraryConstructor {
-    public JsonToString jsonToString=new JsonToString();
-    public BookProcessor bookProcessor=new BookProcessor();
+public  class LibraryConstructor {
+    public static JsonToString jsonToString=new JsonToString();
     @Getter
     @Setter
     public static class BookObject {
@@ -29,12 +24,12 @@ public class LibraryConstructor {
         private String author;
         private MetaData metadata;
     }
-    public BookObject[] addBooksToLibrary(String filePath) {
+    public static BookObject[] addBooksToLibrary(String filePath) {
         StringBuilder convertedString = jsonFileErrorHandler(filePath);
         Gson gson = new Gson();
         return gson.fromJson(convertedString.toString(), BookObject[].class);
     }
-    public StringBuilder jsonFileErrorHandler(String filePath) {
+    public static StringBuilder jsonFileErrorHandler(String filePath) {
          final String categoriesKey="categories";
          final String priceKey="price";
          final String pagesKey="pages";
@@ -87,7 +82,7 @@ public class LibraryConstructor {
             return jsonString;
         }
     }
-    public BiMap<String,BookObject[]> createLibraryNameAssociation (String name, BookObject[] libraryOfBooks)
+    public static BiMap<String,BookObject[]> createLibraryNameAssociation(String name, BookObject[] libraryOfBooks)
     {
         BiMap<String,LibraryConstructor.BookObject[]>association= HashBiMap.create();
         association.put(name,libraryOfBooks);

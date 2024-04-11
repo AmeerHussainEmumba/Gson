@@ -25,9 +25,11 @@ T
 $src/main/java/code/main/MainApp.java,f/f/fffdd12e0b2b9175c34073a121556da71e7c7b04
 _
 /src/main/java/library/bookObjects/MetaData.java,e/1/e11f56cc49a88d3d592911c9e48f46945d6cd19c
-X
-(src/main/java/user/SubscriberStatus.java,9/f/9fdca0c4a7b5422f03c5fdad9476788880a44635
 S
 #src/main/java/user/UserObjects.java,3/d/3dfeb0bbf49f79abfc98290578558f65b50c5b46
 g
 7src/main/java/library/resources/LibraryConstructor.java,0/b/0b00fe6ecb425aef7019df5d6cc5c88e9aa9a6bb
+\
+,src/main/java/library/resources/Library.java,e/7/e785666d70c4c1fbb017d3b4e2dbcb6c6e7d6426
+e
+5src/main/java/library/resources/SubscriberStatus.java,d/2/d2ddd440952c816529c85d0ac79492dfaf12f369
