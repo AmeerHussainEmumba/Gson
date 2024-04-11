@@ -5,7 +5,6 @@ import library.resources.Library;
 import library.resources.LibraryConstructor;
 import lombok.extern.slf4j.Slf4j;
 import user.UserObjects;
-
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -25,28 +24,28 @@ public class MainApp {
                 .toArray(UserObjects[]::new);
 
         libraryPrime.addSubscriber(allUsers[1]);
-//        libraryPrime.printSubscriptionStats(allUsers[0]);
-//        libraryPrime.printSubscriptionStats(allUsers[1]);
-//        libraryPrime.printSubscriptionStats(allUsers[2]);
+        libraryPrime.printSubscriptionStats(allUsers[0]);
+        libraryPrime.printSubscriptionStats(allUsers[1]);
+        libraryPrime.printSubscriptionStats(allUsers[2]);
 
 
            //Display AllBooks
-//           libraryPrime.bookProcessor.displayBookInfo();
+           libraryPrime.bookProcessor.displayBookInfo();
 
            //Get All books of an Author xyz
-//           List<String> allBooksOfAnAuthor = libraryPrime.getBookProcessor().allBooksOfAnAuthor("An Author");
-//           allBooksOfAnAuthor.forEach(log::info);
+           List<String> allBooksOfAnAuthor = libraryPrime.getBookProcessor().allBooksOfAnAuthor("An Author");
+           allBooksOfAnAuthor.forEach(log::info);
 
            //Get Average price
-//           log.info("The Average price is " + libraryPrime.getBookProcessor().getAveragePrice());
+           log.info("The Average price is " + libraryPrime.getBookProcessor().getAveragePrice());
 
            //Get book with the highest price
-//           List<LibraryConstructor.BookObject> highestPrice = libraryPrime.getBookProcessor().getHighestPrice();
-//           highestPrice.forEach(book -> log.info(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
+           List<LibraryConstructor.BookObject> highestPrice = libraryPrime.getBookProcessor().getHighestPrice();
+           highestPrice.forEach(book -> log.info(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
 
            //Get books with certain category
-//           List<String> booksOfCategory = libraryPrime.getBookProcessor().getBookOfCategory("Thriller");
-//           booksOfCategory.forEach(log::info);
+           List<String> booksOfCategory = libraryPrime.getBookProcessor().getBookOfCategory("Thriller");
+           booksOfCategory.forEach(log::info);
 
            //Add book from  library
              libraryPrime.libraryBooks= libraryPrime.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json", libraryPrime);
