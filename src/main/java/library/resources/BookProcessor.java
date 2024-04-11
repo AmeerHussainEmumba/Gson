@@ -71,16 +71,13 @@ public class BookProcessor implements LibraryPerformable {
     }
 
     public LibraryConstructor.BookObject[] addBookToLibrary(String filepathToNewBooks, Library library)
-    {   BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary= library.associationOfLibrary;
-        String libraryName=library.libraryName;
-
+    {
         LibraryConstructor tempLibraryConstructor = new LibraryConstructor();
         LibraryConstructor.BookObject[] newBooksToAdd = tempLibraryConstructor.addBooksToLibrary(filepathToNewBooks);
         String [] bookTitles= Arrays.stream(newBooksToAdd)
                             .map(LibraryConstructor.BookObject::getTitle)
                             .toArray(String[]::new);
-        Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(associationOfLibrary.get(libraryName)),Arrays.stream(newBooksToAdd));
-
+        Stream<LibraryConstructor.BookObject> newLibrary= Stream.concat(Arrays.stream(library.getLibraryBooks()),Arrays.stream(newBooksToAdd));
         library.subscribedUsers.forEach(userObjects -> library.notifyBookWasAdded(userObjects, String.valueOf(Arrays.stream(bookTitles).toList())));
         LibraryConstructor.BookObject[] finalBooks= newLibrary.toArray(LibraryConstructor.BookObject[]::new);
         books= finalBooks;
@@ -89,11 +86,10 @@ public class BookProcessor implements LibraryPerformable {
 
     public LibraryConstructor.BookObject[] removeBookFromLibrary(String nameOfBookToRemove, Library library)
     {
-        BiMap<String,LibraryConstructor.BookObject[]> associationOfLibrary= library.associationOfLibrary;
         String libraryName=library.libraryName;
         LibraryConstructor.BookObject[] newLibrary;
-        if (Arrays.stream(associationOfLibrary.get(libraryName)).anyMatch(book -> book.getTitle().equals(nameOfBookToRemove)))
-        { newLibrary = Arrays.stream(associationOfLibrary.get(libraryName))
+        if (Arrays.stream(library.libraryBooks).anyMatch(book -> book.getTitle().equals(nameOfBookToRemove)))
+        { newLibrary = Arrays.stream(library.libraryBooks)
                 .filter(book -> !book.getTitle().equals(nameOfBookToRemove)).toArray(LibraryConstructor.BookObject[]::new);
         library.subscribedUsers.forEach(userObjects -> library.notifyBookRemoval(userObjects, nameOfBookToRemove));
             books= newLibrary;

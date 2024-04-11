@@ -14,13 +14,11 @@ import user.UserObjects;
 public class Library extends SubscriberStatus{
     public LibraryConstructor.BookObject[] libraryBooks;
     public String libraryName;
-    public BiMap<String, LibraryConstructor.BookObject[]> associationOfLibrary;
     public  BookProcessor bookProcessor;
 
     public Library(String path, String libraryName)
     {   this.libraryName=libraryName;
         libraryBooks= LibraryConstructor.addBooksToLibrary(path);
-        this.associationOfLibrary=LibraryConstructor.createLibraryNameAssociation(libraryName,libraryBooks);
         bookProcessor= new BookProcessor(libraryBooks);
     }
 

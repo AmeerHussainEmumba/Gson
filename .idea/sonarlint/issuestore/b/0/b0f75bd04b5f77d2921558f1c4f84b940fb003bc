@@ -1,9 +1,9 @@
 
 •
-java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8Èİ–õì1J$224600ed-e31d-4f15-b7f2-3df2ce630fb4
+java:S6204)"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥8â–Åõì1J$765f7728-bf65-49ea-b89e-c9baae9f943d
 •
-java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8Ëİ–õì1J$1d5f3196-04cf-4ba1-8e3a-17aaee26a50e
+java:S6204D"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Âıêê8å–Åõì1J$2e3db4b3-9a60-442d-a66b-f1694de06d2e
 z
-java:S2440M"2Remove this instantiation of "LibraryConstructor".(”Œ’Ûúÿÿÿÿ8Îİ–õì1J$a72a5c47-b29a-4af1-b63f-da26d8b8339e
+java:S2440K"2Remove this instantiation of "LibraryConstructor".(”Œ’Ûúÿÿÿÿ8ç–Åõì1J$11f25fc2-ba8a-4eee-856a-715cfbf97b6c
 x
-java:S2209N"5Change this instance-reference to a static reference.(¾ÈéÏ8Îİ–õì1J$7dbef73f-b8d6-4c4e-b779-49c5b570b01e
+java:S2209L"5Change this instance-reference to a static reference.(¾ÈéÏ8è–Åõì1J$f3dc4db0-6bc0-49c1-9fad-19e0b406bec2
