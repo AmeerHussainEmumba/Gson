@@ -2,10 +2,8 @@ package code.main;
 
 
 import library.resources.Library;
-import library.resources.LibraryConstructor;
 import lombok.extern.slf4j.Slf4j;
 import user.UserObjects;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -29,31 +27,30 @@ public class MainApp {
         libraryPrime.printSubscriptionStats(allUsers[2]);
 
 
-           //Display AllBooks
-           libraryPrime.bookProcessor.displayBookInfo();
+//           //Display AllBooks
+           libraryPrime.retrieveAllBookData();
 
            //Get All books of an Author xyz
-           List<String> allBooksOfAnAuthor = libraryPrime.getBookProcessor().allBooksOfAnAuthor("An Author");
-           allBooksOfAnAuthor.forEach(log::info);
+           libraryPrime.retrieveAllBooksOfAnAuthor("An Author");
 
            //Get Average price
-           log.info("The Average price is " + libraryPrime.getBookProcessor().getAveragePrice());
+           libraryPrime.retrieveAveragePrice();
 
            //Get book with the highest price
-           List<LibraryConstructor.BookObject> highestPrice = libraryPrime.getBookProcessor().getHighestPrice();
-           highestPrice.forEach(book -> log.info(book.getTitle() + " has the highest price, which is " + book.getMetadata().getPrice()));
+
+           libraryPrime.retrieveHighestPrice();
 
            //Get books with certain category
-           List<String> booksOfCategory = libraryPrime.getBookProcessor().getBookOfCategory("Thriller");
-           booksOfCategory.forEach(log::info);
+           libraryPrime.retrieveBooksOfACategory("Thriller");
+
 
            //Add book from  library
-             libraryPrime.libraryBooks= libraryPrime.bookProcessor.addBookToLibrary("src/main/resources/booksToAdd.json", libraryPrime);
-             libraryPrime.bookProcessor.displayBookInfo();
+             libraryPrime.addBooksToLibrary("src/main/resources/booksToAdd.json");
+             libraryPrime.retrieveAllBookData();
 
           //Remove book from  library
-             libraryPrime.libraryBooks = libraryPrime.bookProcessor.removeBookFromLibrary("A book", libraryPrime);
-             libraryPrime.bookProcessor.displayBookInfo();
+             libraryPrime.removeBookFromLibrary("A book");
+             libraryPrime.retrieveAllBookData();
 
     }
 }

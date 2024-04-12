@@ -5,11 +5,12 @@ import java.util.List;
 
 public interface LibraryPerformable {
 
-    void displayBookInfo();
-    List<String> allBooksOfAnAuthor (String author);
-    double getAveragePrice();
-    List<LibraryConstructor.BookObject> getHighestPrice ();
-    List<String> getBookOfCategory (String category);
-    public LibraryConstructor.BookObject[] addBookToLibrary(String filepathToNewBooks, Library library);
-    public LibraryConstructor.BookObject[] removeBookFromLibrary(String nameOfBookToRemove, Library library);
+    String [] bpReturnAllTitles (LibraryConstructor.BookObject[] books);
+    void bpDisplayBookInfo(LibraryConstructor.BookObject[] books);
+    List<String> bpGetAllBooksOfAnAuthor (String author,LibraryConstructor.BookObject[] books);
+    double bpGetAveragePrice(LibraryConstructor.BookObject[] books);
+    List<LibraryConstructor.BookObject> bpGetHighestPrice (LibraryConstructor.BookObject[] books);
+    List<String> bpGetBookOfCategory (String category,LibraryConstructor.BookObject[] books);
+    public LibraryConstructor.BookObject[] bpBooksAdder(LibraryConstructor.BookObject[] newBooksData, LibraryConstructor.BookObject[] books);
+    public LibraryConstructor.BookObject[] bpBookRemover (String nameOfBookToRemove, LibraryConstructor.BookObject[] books, String libraryName);
 }
